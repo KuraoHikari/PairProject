@@ -1,5 +1,5 @@
 const { checkPassword } = require("../helpers/bcrypt")
-const {HastagCat, Post, PostHastag , Profile , UserCat, Register} = require("../models")
+const {HastagCat, Post, PostHastag , Profile , UserCat} = require("../models")
 
 class userController {
 
@@ -9,14 +9,16 @@ class userController {
 
     static registerData(req, res) {
         const newData = {
+            username : req.body.username,
+            password : req.body.password,
             email : req.body.email,
-            password : req.body.password
+            phone: req.body.phone
         }
         
-        Register
+        UserCat
             .create(newData)
             .then(data => {
-                res.send(data)
+                res.redirect("/login")
             })
             .catch(err => {
                 res.send(err.errors[0].message)
@@ -29,7 +31,7 @@ class userController {
 
     static login(req, res) {
         const {email , password} = req.body
-        Register
+        UserCat
             .findOne({
                 where: {
                     email : email 
@@ -44,7 +46,7 @@ class userController {
                         req.session.email = data.email
                         res.redirect("/beranda")
                     } else {
-                        res.send("Incorrect Email or Password")
+                        res.send(err)
                     }
                 } else {
                     console.log(err);
@@ -53,7 +55,7 @@ class userController {
             })
             .catch(err => {
                 console.log(err)
-                res.send(err)
+                res.render("error")
             })
     }
 }

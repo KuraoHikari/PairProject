@@ -1,9 +1,7 @@
-const {HastagCat, Post, PostHastag , Profile , UserCat, Register} = require("../models")
-
-
+const {HastagCat, Post, PostHastag , Profile , UserCat} = require("../models")
 class Controller{
     static home(req,res){
-        res.send("masuk")
+        res.send(masuk)
     }
     static Beranda(req,res){
         Post.findAll({
