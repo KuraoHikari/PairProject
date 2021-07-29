@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('Posts', [{
       title:"Mengunyah Sofa",
       story:"nge bar bar ngab",
-      image:"https://imgur.com/a/7czRTDx",
+      image:"https://i.imgur.com/Lk6LVnl.jpeg",
       UserCatId : 1,
       createdAt: new Date(),
       updatedAt: new Date()
