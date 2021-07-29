@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('Profiles', [{
       cat_name:"Oren",
       bio:"Kucing yang barbar",
-      profile_picture:"https://imgur.com/a/7czRTDx",
+      profile_picture:"https://i.imgur.com/Lk6LVnl.jpeg",
       createdAt: new Date(),
       updatedAt: new Date()
     }])
