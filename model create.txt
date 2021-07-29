@@ -1,0 +1,12 @@
+1.  sequelize model:generate --name Profile --attributes cat_name:string,bio:string,profile_picture:string
+
+2.  sequelize model:generate --name UserCat --attributes username:string,password:string,email:string,phone:string,ProfileId:integer
+Note: "nanti disini dia langsung ngurus buhungan one to one sama Profile"
+
+3.  sequelize model:generate --name Post --attributes title:string,story:string,image:string,UserCatId:integer
+Note: "sama seperti sebelumnya indra langsung bikin FK buat post buat hubungun post sama usercat dimana hubungannya one to many satu usercat bisa memiliki banyak postingan"
+
+4.  sequelize model:generate --name HastagCat --attributes title:string
+
+5.  sequelize model:generate --name PostHastag --attributes PostId:integer,HastagId:integer
+Note: "ini untuk hubungan many to many antara si post ama HastagCat"
