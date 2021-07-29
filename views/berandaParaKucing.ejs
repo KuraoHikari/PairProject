@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda Postingan</title>
+</head>
+<body>
+    <h1>Beranda</h1>
+    <% data.forEach(el=>{%>
+        <a href="/editpost/<%= el.id %>">Edit Post</a>
+        <h2><%= el.title %></h2>
+        <p>By</p>
+        <h4><%= el.UserCat.email %></h4> <p> pada </p> <p> <%=el.DateCoverter%> </p>
+        <img src="<%=el.image%>" alt="" width="300px">
+        <p><%= el.story %></p>
+    <%})%>
+    
+</body>
+</html>

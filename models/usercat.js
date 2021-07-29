@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       UserCat.belongsTo(models.Profile , {foreignKey:"ProfileId"})
-      UserCat.hasMany(models.Post, {foreignKey:"UserCatId"})
+      UserCat.hasMany(models.Post)
     }
   };
   UserCat.init({

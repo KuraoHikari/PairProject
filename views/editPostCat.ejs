@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Potingan</title>
+</head>
+<body>
+    <h1>Edit Postingan</h1>
+    <p>by</p>
+    <h3><%= data.UserCat.email %></h3>
+
+    <form action="/editpost/<%= data.id %>" method="POST">
+        <br><label for="">Title Postingan</label> <br>
+        <br><input type="text" name="title" value="<%= data.title %>"><br>
+        <br><label for="">Tambahkan Ceritanya</label><br>
+        <br><input type="text" name="story" value="<%= data.story %>"><br>
+        <br><label for="">mau Apply Gambar Baru??</label><br><br>
+        <img src="<%= data.image %>" alt="" width="300px"><br><br>
+        <p>paste Linknya disini</p>
+        <br><input type="text" name="image" value="<%= data.image %>"><br>
+
+        <br><button type="submit">submit</button>
+
+    </form>
+    
+</body>
+</html>

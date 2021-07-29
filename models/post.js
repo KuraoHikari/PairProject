@@ -11,15 +11,34 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Post.hasMany(models.UserCat, {foreignKey:"UserCatId"})
+      Post.belongsTo(models.UserCat)
       Post.belongsToMany(models.HastagCat , {through:'PostHastag'})
+    }
+    get DateCoverter(){
+      let today = this.createdAt;
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+
+        today = yyyy + '-' + dd + '-' + mm;
+        return today
     }
   };
   Post.init({
     title: DataTypes.STRING,
     story: DataTypes.STRING,
     image: DataTypes.STRING,
-    UserCatId: DataTypes.INTEGER
+    UserCatId: {
+      type:DataTypes.INTEGER,
+      references : {
+        model :{
+          tableName : "Posts"
+        },
+        key : "id"
+      },
+      onUpdate : "CASCADE",
+      onDelete : "CASCADE"
+    }
   }, {
     sequelize,
     modelName: 'Post',
