@@ -7,10 +7,9 @@ router.get('/beranda', checkisLogin, Controller.Beranda)///nampilin semua postin
 router.get('/bikinPost', checkisLogin, Controller.BikinPostingan)
 router.post('/bikinPost', checkisLogin, Controller.postBikinPostingan)
 
-router.get('/deletepost/:id', checkisLogin, Controller.home)
+router.get('/deletepost/:id', checkisLogin, Controller.deletePost)
 router.get('/editpost/:id', checkisLogin,  Controller.EditPostCat)
 router.post('/editpost/:id', checkisLogin,  Controller.PostEditPost)
-router.get('/editProfile/:id', checkisLogin, Controller.home)
 
 router.get("/register", userController.registerForm)
 router.post("/register", userController.registerData)

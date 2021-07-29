@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Post.belongsTo(models.UserCat)
-      Post.belongsToMany(models.HastagCat , {through:'PostHastag'})
+      Post.belongsToMany(models.HastagCat , {through:'PostHastag', foreignKey:"PostId"})
     }
     get DateCoverter(){
       let today = this.createdAt;

@@ -53,17 +53,17 @@
                 <%})%>
             </select>
             <select name="HastagId" id="">
-                <option value = "" selected disabled>Select Tag</option>
-                <% hastag.forEach(el=>{%>
-                    <option value="<%= el.id %>"> <%= el.title%></option>
-                <%})%>
-            </select>
-            <select name="HastagId" id="">
-                <option value = "" selected disabled>Select Tag</option>
-                <% hastag.forEach(el=>{%>
-                    <option value="<%= el.id %>"> <%= el.title%></option>
-                <%})%>
-            </select>
+              <option value = "" selected disabled>Select Tag</option>
+              <% hastag.forEach(el=>{%>
+                  <option value="<%= el.id %>"> <%= el.title%></option>
+              <%})%>
+          </select>
+          <select name="HastagId" id="">
+            <option value = "" selected disabled>Select Tag</option>
+            <% hastag.forEach(el=>{%>
+                <option value="<%= el.id %>"> <%= el.title%></option>
+            <%})%>
+        </select>
             <br>
             <br><button type="submit" class="btn-primary">submit</button>
 

@@ -6,10 +6,10 @@ class Controller{
     static Beranda(req,res){
         let datasesi = req.session
         Post.findAll({
-            include:[UserCat]
+            include:[HastagCat, UserCat],
         })
         .then(data=>{
-            res.render("berandaParaKucing", {data , datasesi})
+            res.render("berandaParaKucing", {data , datasesi })
         })
         .catch(err=>{
             res.send(err)
@@ -27,7 +27,33 @@ class Controller{
         
     }
     static postBikinPostingan(req,res){
-        console.log(req.body)
+        let id = req.session.userId
+   
+        Post.create(
+        { 
+            title: req.body.title,
+            story: req.body.story,
+            image: req.body.image,
+            UserCatId: id
+        })
+        .then(data=>{
+            return PostHastag.bulkCreate([
+                {
+                PostId: data.id,
+                HastagId: req.body.HastagId[0]
+            },
+            {
+                PostId: data.id,
+                HastagId: req.body.HastagId[1]
+            },
+            {
+                PostId: data.id,
+                HastagId: req.body.HastagId[2]
+            }])
+        })
+        .then(data=>{
+            res.redirect("/beranda")
+        })
 
     }
     static EditPostCat(req,res){
@@ -50,6 +76,18 @@ class Controller{
             where: { id: id }
         }
         )
+        .then(data=>{
+            res.redirect('/beranda')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+    static deletePost(req,res){
+        let id = req.params.id
+        Post.destroy({
+            where: { id: id }
+        })
         .then(data=>{
             res.redirect('/beranda')
         })

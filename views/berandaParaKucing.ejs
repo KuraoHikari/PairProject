@@ -38,24 +38,26 @@
           </nav>
       </div>
     <div class="container">
-        <% if(data.id === datasesi.id){%>
-            <% data.forEach(el=>{%>
-                <a href="/editpost/<%= el.id %>">Edit Post</a>
-                <h2><%= el.title %></h2>
-                <p>By</p>
-                <h4><%= el.UserCat.email %></h4> <p> pada </p> <p> <%=el.DateCoverter%> </p>
-                <img src="<%=el.image%>" alt="" width="300px">
-                <p><%= el.story %></p>
-            <%})%>
-        <%}else{%>
+        
             <% data.forEach(el=>{%>
                 <h2><%= el.title %></h2>
-                <p>By</p>
-                <h4><%= el.UserCat.email %></h4> <p> pada </p> <p> <%=el.DateCoverter%> </p>
+                
+                <% if( el.UserCatId=== datasesi.userId){%>
+                    <a href="/editpost/<%= el.id %>">Edit Post</a> || <a href="/deletepost/<%= el.id %>">deletepost</a>
+                <%}%>
+                <p>by</p>
+                <h4><%= el.UserCat.email %></h4> <p> pada </p> <p> <%=el.DateCoverter%> </p> 
                 <img src="<%=el.image%>" alt="" width="300px">
                 <p><%= el.story %></p>
+                <% if( el.HastagCats.length !== 0){%>
+                    <h5>Hastag: </h5>
+                    <% el.HastagCats.forEach(item=>{%>
+                        <h6><%= item.title %></h6>
+
+                    <%})%>
+                <%}%>
+                <p>======================================================================</p>
             <%})%>
-        <%}%>
     
     </div>
 

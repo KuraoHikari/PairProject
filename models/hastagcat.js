@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      HastagCat.belongsToMany(models.Post , {through:'PostHastag'})
+      HastagCat.belongsToMany(models.Post , {through:'PostHastag' , foreignKey:"HastagId"})
     }
   };
   HastagCat.init({
