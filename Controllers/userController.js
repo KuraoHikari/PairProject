@@ -28,7 +28,6 @@ class userController {
     }
 
     static login(req, res) {
-        console.log(req.body);
         const {email , password} = req.body
         Register
             .findOne({
