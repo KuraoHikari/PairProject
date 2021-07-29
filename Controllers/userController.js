@@ -58,6 +58,11 @@ class userController {
                 res.render("error")
             })
     }
+    
+    static logout(req, res) {
+        req.session.isLogin = false
+        res.redirect("/login")
+    }   
 }
 
 module.exports = userController

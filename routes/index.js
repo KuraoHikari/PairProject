@@ -17,6 +17,8 @@ router.post("/register", userController.registerData)
 router.get("/login", userController.formLogin)
 router.post("/login", userController.login)
 
+router.get("/logout", userController.logout)
+
 function checkisLogin(req, res, next) {
     if (req.session.isLogin) {
         next()
