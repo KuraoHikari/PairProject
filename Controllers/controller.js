@@ -4,15 +4,31 @@ class Controller{
         res.send(masuk)
     }
     static Beranda(req,res){
+        let datasesi = req.session
         Post.findAll({
             include:[UserCat]
         })
         .then(data=>{
-            res.render("berandaParaKucing", {data})
+            res.render("berandaParaKucing", {data , datasesi})
         })
         .catch(err=>{
             res.send(err)
         })
+    }
+    static BikinPostingan(req,res){
+        let id = req.session.UserId
+        HastagCat.findAll()
+        .then(hastag=>{
+            res.render("PostSesuatu" , {hastag})
+        })
+        .catch(err=>{
+            res.send(err)
+        })
+        
+    }
+    static postBikinPostingan(req,res){
+        console.log(req.body)
+
     }
     static EditPostCat(req,res){
         Post.findByPk(req.params.id, {include:[UserCat]})

@@ -4,7 +4,9 @@ const userController = require("../Controllers/userController")
 var session = require("express-session")
 
 router.get('/beranda', checkisLogin, Controller.Beranda)///nampilin semua postingan yang ada
-router.get('/bikinPost', checkisLogin, Controller.home)
+router.get('/bikinPost', checkisLogin, Controller.BikinPostingan)
+router.post('/bikinPost', checkisLogin, Controller.postBikinPostingan)
+
 router.get('/deletepost/:id', checkisLogin, Controller.home)
 router.get('/editpost/:id', checkisLogin,  Controller.EditPostCat)
 router.post('/editpost/:id', checkisLogin,  Controller.PostEditPost)
