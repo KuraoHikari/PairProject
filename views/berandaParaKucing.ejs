@@ -40,8 +40,9 @@
     <div class="container">
         
             <% data.forEach(el=>{%>
+              
                 <h2><%= el.title %></h2>
-                
+                <p><%= kata %></p>
                 <% if( el.UserCatId=== datasesi.userId){%>
                     <a href="/editpost/<%= el.id %>">Edit Post</a> || <a href="/deletepost/<%= el.id %>">deletepost</a>
                 <%}%>

@@ -23,6 +23,17 @@ module.exports = (sequelize, DataTypes) => {
         today = yyyy + '-' + dd + '-' + mm;
         return today
     }
+    static nambahkanKata(){
+      console.log(this.story)
+      let time = new Date()
+      let today = time;
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+
+        today = yyyy + '-' + dd + '-' + mm;
+      return "Kamu melihat ini pada: "+ today
+    }
   };
   Post.init({
     title: DataTypes.STRING,

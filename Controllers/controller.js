@@ -1,4 +1,5 @@
 const {HastagCat, Post, PostHastag , Profile , UserCat} = require("../models")
+const sendmail = require('../helpers/KirimEmail')
 class Controller{
     static home(req,res){
         res.send(masuk)
@@ -9,7 +10,10 @@ class Controller{
             include:[HastagCat, UserCat],
         })
         .then(data=>{
-            res.render("berandaParaKucing", {data , datasesi })
+            sendmail(req.session.email)
+            let kata = Post.nambahkanKata()
+            console.log(kata)
+            res.render("berandaParaKucing", {data , datasesi , kata})
         })
         .catch(err=>{
             res.send(err)
