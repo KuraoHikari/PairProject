@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "nodemailer": "^6.6.3",
-    "nodemailer-smtp-transport": "^2.7.4",
+    "nodemailer-smtp-transport": "^2.4.2",
     "nodemon": "^2.0.12",
     "sequelize-cli": "^6.2.0"
   },
